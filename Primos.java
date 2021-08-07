@@ -4,21 +4,7 @@ class Primos {
 		//Create array
 		int i = 1;
 		while (i <= 1000000) {
-			if (
-			i % 2 != 0 ||
-			i % 3 != 0 ||
-			i % 4 != 0 ||
-			i % 5 != 0 ||
-			i % 6 != 0 ||
-			i % 7 != 0 ||
-			i % 8 != 0 ||
-			i % 9 != 0 ||
-			i == 1 ||
-			i == 2 ||
-			i == 3 ||
-			i == 5 ||
-			i == 7
-			) {
+			if (isPrime(i)) {
 				while(true) {
 					if ((Integer.toString(Primos.cypherSum(i))).length() == 1) {
 						System.out.println(i + " ----> " + Primos.cypherSum(i));
@@ -29,6 +15,29 @@ class Primos {
 				}	
 			}
 			i++;
+		}
+	}
+
+	//Método para saber si un número dado es primo
+	static boolean isPrime(int primeTest) {
+		if (
+		primeTest % 2 != 0 ||
+		primeTest % 3 != 0 ||
+		primeTest % 4 != 0 ||
+		primeTest % 5 != 0 ||
+		primeTest % 6 != 0 ||
+		primeTest % 7 != 0 ||
+		primeTest % 8 != 0 ||
+		primeTest % 9 != 0 ||
+		primeTest == 1 ||
+		primeTest == 2 ||
+		primeTest == 3 ||
+		primeTest == 5 ||
+		primeTest == 7
+		) {
+			return true;
+		} else {
+			return false;
 		}
 	}
 
