@@ -5,12 +5,17 @@ class Primos {
 		int i = 1;
 		while (i <= 1000000) {
 			if (isPrime(i)) {
+				int j = i;
+				System.out.print(i);
 				while(true) {
-					if ((Integer.toString(Primos.cypherSum(i))).length() == 1) {
-						System.out.println(i + " ----> " + Primos.cypherSum(i));
+					if ((Integer.toString(Primos.cypherSum(j))).length() == 1) {
+						System.out.println(" ----> " + Primos.cypherSum(j));
 						break;
 					} else {
-						i = Primos.cypherSum(i);
+						j = Primos.cypherSum(j);
+						if (isPrime(j)) {
+							System.out.print(" ----> " + j);
+						}
 					}
 				}	
 			}
@@ -21,14 +26,14 @@ class Primos {
 	//Método para saber si un número dado es primo
 	static boolean isPrime(int primeTest) {
 		if (
-		primeTest % 2 != 0 ||
-		primeTest % 3 != 0 ||
-		primeTest % 4 != 0 ||
-		primeTest % 5 != 0 ||
-		primeTest % 6 != 0 ||
-		primeTest % 7 != 0 ||
-		primeTest % 8 != 0 ||
-		primeTest % 9 != 0 ||
+		(primeTest % 2 != 0 && 
+		primeTest % 3 != 0 &&
+		primeTest % 4 != 0 &&
+		primeTest % 5 != 0 &&
+		primeTest % 6 != 0 &&
+		primeTest % 7 != 0 &&
+		primeTest % 8 != 0 &&
+		primeTest % 9 != 0)|| 
 		primeTest == 1 ||
 		primeTest == 2 ||
 		primeTest == 3 ||
@@ -49,6 +54,7 @@ class Primos {
                 int k = 0;
 		while (k < primeStr.length()) {
 	               	primeSum = Character.getNumericValue(primeStr.charAt(k)) + primeSum;
+			k++;
 		}
 		return primeSum;
 	}
